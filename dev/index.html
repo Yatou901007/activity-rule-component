@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;activity-rule> Demo</title>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="../activity-rule.js"></script>
+    <style>
+      p {
+        border: solid 1px blue;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <activity-rule></activity-rule>
+  </body>
+  <script>
+    const ruleData = {
+      ruleMode: 1,
+      venderIds: '123',
+      brandName: '美的',
+      categoryName: ['家用电器-大家电-洗衣机'],
+      skuId: '123,456',
+      rebateRuleList: [
+        { 
+          "purchaseMin": "90,000", 
+          "purchaseMax": "9,000,000", 
+          "rebateType": 1, 
+          "rebateQuota": "20" 
+        }, 
+        { 
+          "purchaseMin": "9,000,000", 
+          "purchaseMax": "90,000,000", 
+          "rebateType": 1, 
+          "rebateQuota": "22" 
+        }, 
+        { 
+          "purchaseMin": "90,000,000", 
+          "purchaseMax": null, 
+          "rebateType": 2, 
+          "rebateQuota": "23" 
+        }
+      ]
+    }
+    document.querySelector('activity-rule').setAttribute('ruleData', JSON.stringify(ruleData))
+    
+  </script>
+</html>

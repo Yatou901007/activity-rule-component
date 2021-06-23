@@ -1,0 +1,1 @@
+{"version":3,"file":"ActivityRuleModel.js","sourceRoot":"","sources":["../src/model/ActivityRuleModel.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,MAAM,OAAO,iBAAiB;CAK7B","sourcesContent":["/**\n * 返利规则\n */\nexport class ActivityRuleModel {\n  purchaseMin!: string; // 最小值\n  purchaseMax!: string; // 最大值\n  rebateType!: number; // 类型\n  rebateQuota!: string; // 值\n}\n\n"]}

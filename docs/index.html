@@ -1,0 +1,91 @@
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><activity-rule> ⌲ Home</title>
+    <link rel="stylesheet" href="docs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
+    <link href="prism-okaidia.css" rel="stylesheet" />
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="activity-rule.bundled.js"></script>
+    
+  </head>
+  <body>
+    
+<header>
+  <h1>&lt;activity-rule></h1>
+  <h2>一盘货返利活动规则的 web component 组件。</h2>
+</header>
+    
+<nav>
+  <a href="">Home</a>
+  <a href="examples/">Examples</a>
+  <a href="api/">API</a>
+  <a href="install/">Install</a>
+</nav>
+    <div id="main-wrapper">
+      <main>
+        <h1>&lt;activity-rule&gt;</h1>
+<p><code>&lt;activity-rule&gt;</code> 是一个能够跨三端共同使用的组件，作用是展示一盘货返利活动规则。</p>
+<p>三端分别为商家端（React版）、供应商端（Vue版）、管理端（Vue版）。</p>
+<p>组件基于 LitElement 框架构建的，具体使用方法参考本文档。</p>
+<h2>配置 attributes</h2>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity-rule</span> <span class="token attr-name">ruleData</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>JSON.stringify(ruleData)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity-rule</span><span class="token punctuation">></span></span></code></pre>
+<section class="columns">
+  <div>
+<p>ruleData：必填项，返利活动数据</p>
+<p>hideVender: boolean 选填，配置为true可隐藏商家信息</p>
+<p>ruleTitle: string 选填，配置后可修改【返利规则】标签名</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> ruleData <span class="token operator">=</span> <span class="token punctuation">{</span><br>  ruleMode<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// 商品/类目类型： 1 代表类目品牌，2 代表 商品列表</span><br>  venderIds<span class="token operator">:</span> <span class="token string">'123'</span><span class="token punctuation">,</span> <span class="token comment">// 活动商家</span><br>  brandName<span class="token operator">:</span> <span class="token string">'美的'</span><span class="token punctuation">,</span> <span class="token comment">// 品牌</span><br>  categoryName<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'家用电器-大家电-洗衣机'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 品类</span><br>  skuId<span class="token operator">:</span> <span class="token string">'123,456'</span><span class="token punctuation">,</span> <span class="token comment">// 商品</span><br>  rebateRuleList<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 返利规则</span><br>    <span class="token punctuation">{</span><br>    <span class="token string">"purchaseMin"</span><span class="token operator">:</span> <span class="token string">"90,000"</span><span class="token punctuation">,</span> <span class="token comment">// 采购金额最小值</span><br>    <span class="token string">"purchaseMax"</span><span class="token operator">:</span> <span class="token string">"9,000,000"</span><span class="token punctuation">,</span> <span class="token comment">// 采购金额最大值</span><br>    <span class="token string">"rebateType"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// 返利配额类型： 1 代表百分比，2 代表 固定数额</span><br>    <span class="token string">"rebateQuota"</span><span class="token operator">:</span> <span class="token string">"20"</span> <span class="token comment">// 返利值</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token punctuation">{</span><br>    <span class="token string">"purchaseMin"</span><span class="token operator">:</span> <span class="token string">"9,000,000"</span><span class="token punctuation">,</span><br>    <span class="token string">"purchaseMax"</span><span class="token operator">:</span> <span class="token string">"90,000,000"</span><span class="token punctuation">,</span><br>    <span class="token string">"rebateType"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span><br>    <span class="token string">"rebateQuota"</span><span class="token operator">:</span> <span class="token string">"22"</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token punctuation">{</span><br>    <span class="token string">"purchaseMin"</span><span class="token operator">:</span> <span class="token string">"90,000,000"</span><span class="token punctuation">,</span><br>    <span class="token string">"purchaseMax"</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span><br>    <span class="token string">"rebateType"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span><br>    <span class="token string">"rebateQuota"</span><span class="token operator">:</span> <span class="token string">"23"</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">]</span><br><span class="token punctuation">}</span><br></code></pre>
+  </div>
+  <div>
+<h2>This is a &lt;activity-rule&gt;</h2>
+<activity-rule></activity-rule>
+<script>
+  const ruleData = {
+    ruleMode: 1, // 商品/类目类型： 1 代表类目品牌，2 代表 商品列表
+    venderIds: '123', // 活动商家
+    brandName: '美的', // 品牌
+    categoryName: ['家用电器-大家电-洗衣机'], // 品类
+    skuId: '123,456', // 商品
+    rebateRuleList: [ // 返利规则
+      {
+      "purchaseMin": "90,000", // 采购金额最小值
+      "purchaseMax": "9,000,000", // 采购金额最大值
+      "rebateType": 1, // 返利配额类型： 1 代表百分比，2 代表 固定数额
+      "rebateQuota": "20" // 返利值
+      },
+      {
+      "purchaseMin": "9,000,000",
+      "purchaseMax": "90,000,000",
+      "rebateType": 1,
+      "rebateQuota": "22"
+      },
+      {
+      "purchaseMin": "90,000,000",
+      "purchaseMax": null,
+      "rebateType": 2,
+      "rebateQuota": "23"
+      }
+    ]
+  }
+  document.querySelector('activity-rule') && document.querySelector('activity-rule').setAttribute('ruleData', JSON.stringify(ruleData))
+</script>
+  </div>
+</section>
+
+      </main>
+    </div>
+    
+<footer>
+  <p>
+    Made with
+    <a href="https://github.com/PolymerLabs/lit-starter-ts">lit-starter-ts</a>
+  </p>
+</footer>
+  </body>
+</html>

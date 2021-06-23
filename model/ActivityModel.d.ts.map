@@ -1,0 +1,1 @@
+{"version":3,"file":"ActivityModel.d.ts","sourceRoot":"","sources":["../src/model/ActivityModel.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,qBAAqB,CAAA;AACvD;;GAEG;AACH,qBAAa,aAAa;IACxB,QAAQ,EAAG,MAAM,CAAC;IAClB,SAAS,EAAG,MAAM,CAAC;IACnB,SAAS,EAAG,MAAM,CAAC;IACnB,YAAY,EAAG,MAAM,EAAE,CAAC;IACxB,KAAK,EAAG,MAAM,CAAC;IACf,cAAc,EAAG,iBAAiB,EAAE,CAAC;CACtC"}

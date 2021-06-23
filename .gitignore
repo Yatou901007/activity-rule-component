@@ -1,0 +1,9 @@
+node_modules/
+/lib/
+/test/
+custom-elements.json
+# top level source
+activity-rule.js
+activity-rule.js.map
+activity-rule.d.ts
+activity-rule.d.ts.map
