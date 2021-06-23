@@ -39,8 +39,14 @@ description: set ruleTitle Property
   document.querySelector('activity-rule').setAttribute('ruleTitle', '奖励规则')
 </script>
 
-<h3>HTML</h3>
+<h3>JSX</h3>
 
 ```html
-<activity-rule ruleData="JSON.stringify(ruleData)" ruleTitle="奖励规则"></activity-rule>
+<activity-rule ruleData={JSON.stringify(ruleData)} ruleTitle="奖励规则"></activity-rule>
+```
+
+<h3>vue</h3>
+
+```html
+<activity-rule :ruleData="JSON.stringify(ruleData)" :ruleTitle="'奖励规则'"></activity-rule>
 ```

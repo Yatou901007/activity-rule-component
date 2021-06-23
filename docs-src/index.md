@@ -14,7 +14,7 @@ title: <activity-rule> ⌲ Home
 ## 配置 attributes
 
 ```html
-<activity-rule ruleData="JSON.stringify(ruleData)"></activity-rule>
+<activity-rule ruleData={JSON.stringify(ruleData)}></activity-rule>
 ```
 
 <section class="columns">

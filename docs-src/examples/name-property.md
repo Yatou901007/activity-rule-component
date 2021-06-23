@@ -39,8 +39,14 @@ description: set hideVender Property
   document.querySelector('activity-rule').setAttribute('hideVender', true)
 </script>
 
-<h3>HTML</h3>
+<h3>JSX</h3>
 
 ```html
-<activity-rule ruleData="JSON.stringify(ruleData)" hideVender="true"></activity-rule>
+<activity-rule ruleData={JSON.stringify(ruleData)} hideVender={true}></activity-rule>
+```
+
+<h3>vue</h3>
+
+```html
+<activity-rule :ruleData="JSON.stringify(ruleData)" :hideVender="true"></activity-rule>
 ```

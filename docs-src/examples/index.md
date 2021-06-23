@@ -39,8 +39,14 @@ description: A basic example
 </script>
 
 
-<h3>HTML</h3>
+<h3>JSX</h3>
 
 ```html
-<activity-rule ruleData="JSON.stringify(ruleData)"></activity-rule>
+<activity-rule ruleData={JSON.stringify(ruleData)}></activity-rule>
+```
+
+<h3>vue</h3>
+
+```html
+<activity-rule :ruleData="JSON.stringify(ruleData)"></activity-rule>
 ```
