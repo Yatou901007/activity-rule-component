@@ -8,6 +8,7 @@ import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import { ActivityModel } from './model/ActivityModel';
+import { formatMoney } from './utils/formatMoney';
 
 /**
  * An example element.
@@ -65,11 +66,15 @@ export class ActivityRule extends LitElement {
         padding: 0 15px;
     }
     .el-table td .cell {
-      padding: 18px;
+      padding: 10px 20px;
+    }
+    .el-table td .cell p {
+      margin-bottom: 0;
+      margin-top: 0;
     }
     .el-table td .cell p .aa {
       display: inline-block;
-      width: 90px;
+      width: 100px;
       text-align: right;
       padding-right: 5px;
     }
@@ -110,13 +115,13 @@ export class ActivityRule extends LitElement {
     return html`
       <table cellspacing="0" cellpadding="0" border="0" class="el-table" style="width: 100%;">
         <colgroup>
-          <col name="el-table_1_column_1" width="100" />
+          <col name="el-table_1_column_1" width="90" />
         </colgroup>
         ${!this.hideVender
         ? html`
         <tr class="">
           <th colspan="1" rowspan="1" class="el-table_1_column_1 is-left is-leaf">
-            <div class="cell" style="font-weight: bold;">活动商家</div>
+            <div class="cell">活动商家</div>
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_1 is-left">
             <div class="cell">${this.ruleData.venderIds}</div>
@@ -127,7 +132,7 @@ export class ActivityRule extends LitElement {
         ? html`
         <tr class="el-table__row" v-if="ruleData.brandName">
           <th colspan="1" rowspan="1" class="el-table_1_column_2 is-left is-leaf">
-            <div class="cell" style="font-weight: bold;">品牌</div>
+            <div class="cell">品牌</div>
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_2 is-left">
             <div class="cell">
@@ -140,7 +145,7 @@ export class ActivityRule extends LitElement {
         ? html`
         <tr class="el-table__row">
           <th colspan="1" rowspan="1" class="el-table_1_column_2 is-left is-leaf">
-            <div class="cell" style="font-weight: bold;">品类</div>
+            <div class="cell">品类列表</div>
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_2 is-left">
             <div class="cell">
@@ -153,7 +158,7 @@ export class ActivityRule extends LitElement {
         ? html`
         <tr class="el-table__row" v-if="ruleData.skuId">
           <th colspan="1" rowspan="1" class="el-table_1_column_2 is-left is-leaf">
-            <div class="cell" style="font-weight: bold;">商品列表</div>
+            <div class="cell">商品列表</div>
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_2 is-left">
             <div class="cell">
@@ -164,7 +169,7 @@ export class ActivityRule extends LitElement {
         `: html``}
         <tr class="">
           <th colspan="1" rowspan="1" class="el-table_1_column_1 is-left is-leaf">
-            <div class="cell" style="font-weight: bold;">${this.ruleTitle}</div>
+            <div class="cell">${this.ruleTitle}</div>
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_1 is-left">
             <div class="cell">
@@ -174,7 +179,7 @@ export class ActivityRule extends LitElement {
                 <span class="aa">
                   ${item.purchaseMin
                     ? html`
-                      ${item.purchaseMin}
+                      ${formatMoney(item.purchaseMin)}
                     `
                     : html`
                       '--'
@@ -187,7 +192,7 @@ export class ActivityRule extends LitElement {
                   ${item.purchaseMax
                     ? html`
                       &le;
-                      <span class="dd">${item.purchaseMax}元</span>
+                      <span class="dd">${formatMoney(item.purchaseMax)}元</span>
                     `
                     : ''
                   }
@@ -198,7 +203,7 @@ export class ActivityRule extends LitElement {
                       采购金额 ${item.rebateQuota} %
                     `
                     : html`
-                      固定数额 ${item.rebateQuota} 元
+                      固定数额 ${formatMoney(item.rebateQuota)} 元
                     `
                   }
               </p>`

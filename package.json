@@ -1,6 +1,6 @@
 {
   "name": "@ofc/activity-rule",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A activity rule component base litElement for ofc",
   "main": "activity-rule.js",
   "module": "activity-rule.js",
