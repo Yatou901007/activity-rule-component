@@ -86,7 +86,11 @@ const{et:rt}=X,ht=()=>document.createComment(""),at=(t,s,i)=>{var e;const l=t.A.
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_2 is-left">
             <div class="cell">
-              <span>${this.ruleData.categoryName}</span>
+              <span>
+                ${this.ruleData.categoryName&&this.ruleData.categoryName.length>0?N`
+                  ${this.ruleData.categoryName.join("，")}
+                  `:N``}
+              </span>
             </div>
           </td>
         </tr>

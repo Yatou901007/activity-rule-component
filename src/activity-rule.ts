@@ -149,7 +149,12 @@ export class ActivityRule extends LitElement {
           </th>
           <td rowspan="1" colspan="1" class="el-table_1_column_2 is-left">
             <div class="cell">
-              <span>${this.ruleData.categoryName}</span>
+              <span>
+                ${this.ruleData.categoryName && this.ruleData.categoryName.length > 0
+                  ? html`
+                  ${this.ruleData.categoryName.join('，')}
+                  `: html``}
+              </span>
             </div>
           </td>
         </tr>
