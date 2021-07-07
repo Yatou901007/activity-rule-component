@@ -5,6 +5,8 @@
   "main": "activity-rule.js",
   "module": "activity-rule.js",
   "type": "module",
+  "types": "activity-rule.d.ts",
+  "typings": "activity-rule.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
